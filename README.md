@@ -45,7 +45,7 @@ To test the API,you may either use postman or anyother relevant comfortable tool
 
 ### Available API call
 
-* Create a new report
+## * Create a new report
 
 ```bash
 http://localhost:5000/reports
@@ -88,7 +88,7 @@ similary we can make one more post request
  }}
  ```
  
- * Fetch reportdetail 
+ ## * Fetch reportdetail 
  
  Make a GET request to the server with `reportID` as a query
  
@@ -104,7 +104,7 @@ similary we can make one more post request
 
 ## Final notes
 
-* Error checking have been applied to validate the data that user submit while creating a report
+* Error checking has been applied to validate the data that user submit while creating a report
 * The code follows MVC architecture
 * Screenshots of Tests have been attached to verify the result
 * mean price is calculated on-fly and is updated when a new user files the report about the same product of market.
