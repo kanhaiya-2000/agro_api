@@ -10,7 +10,7 @@ exports.getAggregateReport = async (req, res) => {
         else {
             const report = await ReportModal.findById(reportID).lean().exec();
             if (!report) {
-                res.status(404).json({ status: "failed", message: "No such report exists" });
+                res.status(200).json({ status: "failed", message: "No such report exists" });
             }
             else {
                 const data = report;
@@ -97,21 +97,22 @@ exports.createReport = async (req, res) => {
                 reportExists.meanprice = (totalprice) / (reportExists.users.length);
 
                 await reportExists.save();
-                res.json({ status: "success", reportID: reportExists._id })
+                
+                res.status(200).json({ status: "success", reportID: reportExists._id })
 
             }
             else {
                 const report = await ReportModal.create({ users: [userID], marketID, marketName, cmdtyID, marketType, cmdtyName, priceUnit: "kg", prices: [price / convFctr], meanprice: price / convFctr });
-                res.json({ status: "success", reportID: report._id })
+                res.status(200).json({ status: "success", reportID: report._id })
             }
         }
         else {
             //if there is error ..then pass those errors in response
-            res.json({ status: "failed", errors: errors })
+            res.status(400).json({ status: "failed", errors: errors })
         }
     }
     catch (e) {
         console.log(e);
-        res.json({ status: "failed", errors: [e.message] })
+        res.status(400).json({ status: "failed", errors: [e.message] })
     }
 }
