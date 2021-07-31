@@ -40,7 +40,11 @@ If you can set your local mongodb ,you can use `mongodb://localhost:27017/agroap
 
 ## Test the API
 
-To test the API,you may either use postman or anyother relevant comfortable tool
+### Automatic testing
+
+Install all dependencies and run `npx mocha` to test and see the server response when a report with given reportID is requested
+
+To test the API manually,you may either use postman or anyother relevant comfortable tool
 <a href="https://www.postman.com/downloads/">Download postman</a>
 
 ### Available API call
