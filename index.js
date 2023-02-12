@@ -3,7 +3,8 @@ const express = require("express");
 const app = express();
 // const reportRoute = require("./routes/ReportRoute")
 const ApiRoute = require("./routes/ApiRoute")
-
+const cors = require("cors");
+app.use(cors({}));
 app.use(express.json());
 
 // const DB = require("./Database");
